@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="trylang.View.RelaxPage"             
+             BackgroundColor="#D2EFEF">
+    <Grid>
+
+        <!-- Define Row and Column Definitions for the Layout -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <!-- Title Row -->
+            <RowDefinition Height="Auto" />
+
+            <RowDefinition Height="*" />
+            <!-- Content Row (fills the rest of the space) -->
+            <!-- Floating Button Row -->
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <!-- Content Column -->
+        </Grid.ColumnDefinitions>
+
+        <!-- Main Content Wrapped in ScrollView (Positioned in Row 1) -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Center">
+                <!-- Title Label at the Top (Centered) -->
+                <Label Text="Relax and Enjoy" 
+                       FontSize="30" 
+                       FontAttributes="Bold" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="StartAndExpand" 
+                    TextColor="#004D40" 
+                       FontFamily="Comic Sans MS"
+                       Margin="0,20"/>
+
+                    <!-- Grid layout for Fidget and Affirmation Boxes (Fixed positions for the frames) -->
+                    <Grid ColumnSpacing="20" HorizontalOptions="Center" Margin="5,10,0,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <!-- Fidget Box (Fixed Position) -->
+                        <Frame Padding="0" Margin="5" CornerRadius="10" HasShadow="True"
+                           Grid.Row="0" Grid.Column="0" BackgroundColor="#E0F7FA" 
+                           WidthRequest="170" HeightRequest="300" BorderColor="Cyan">
+                            <Grid>
+                                <Image Source="relaxcover.png" Aspect="AspectFill" 
+                                   HorizontalOptions="Fill" VerticalOptions="Fill"/>
+                                
+                            </Grid>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnFidgetTapped" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+
+                        <!-- Affirmation Box (Fixed Position) -->
+                        <Frame Padding="0" Margin="5" CornerRadius="10" HasShadow="True"
+                           Grid.Row="1" Grid.Column="1" BackgroundColor="#E1BEE7" 
+                           WidthRequest="170" HeightRequest="300" BorderColor="Cyan">
+                            <Grid>
+                                <Image Source="affirmation.png" Aspect="AspectFill" 
+                                   HorizontalOptions="Fill" VerticalOptions="Fill"/>
+                                
+                            </Grid>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnAffirmationTapped" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                    </Grid>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Floating Button in Bottom Right Corner (Positioned in Row 2) -->
+        <ImageButton Source="plus.png"
+                     Clicked="OnFloatingButtonClicked"
+                     BackgroundColor="Transparent"
+                     WidthRequest="60"
+                     HeightRequest="60"
+                     Grid.Row="2"
+                     HorizontalOptions="End"
+                     VerticalOptions="End"
+                     Margin="30"/>
+    </Grid>
+</ContentPage>

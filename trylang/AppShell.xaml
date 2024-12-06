@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="trylang.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:trylang"
+    xmlns:view="clr-namespace:trylang.View"
+    Shell.FlyoutBehavior="Disabled">
+
+    <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
+    <ShellContent Route="SignUpPage" ContentTemplate="{DataTemplate local:SignUpPage}" />
+    <ShellContent Route="MainPage" ContentTemplate="{DataTemplate local:MainPage}" />
+    <ShellContent Route="FidgetPage" ContentTemplate="{DataTemplate local:FidgetPage}" />
+    <ShellContent Route="AffirmationPage" ContentTemplate="{DataTemplate local:AffirmationPage}" />
+    <ShellContent Route="SettingsPage" ContentTemplate="{DataTemplate local:SettingsPage}" />
+    <ShellContent Route="PopItPage" ContentTemplate="{DataTemplate local:PopItPage}" />
+    <ShellContent Route="AccountPage" ContentTemplate="{DataTemplate local:AccountPage}" />
+
+
+    <!-- Define TabBar as a route -->
+    <TabBar >
+        <ShellContent Route="RelaxPage" Title="Relax" 
+                      ContentTemplate="{DataTemplate view:RelaxPage}" 
+                      Icon="relaxblue.png" />
+        <ShellContent Route="CalendarPage" Title="Home" 
+                      ContentTemplate="{DataTemplate view:CalendarPage}" 
+                      Icon="homeblue.png" />
+        <ShellContent Route="InsightsPage" Title="Insights" 
+                      ContentTemplate="{DataTemplate view:InsightsPage}"  
+                      Icon="insightsblue.png" />
+    </TabBar>
+
+    
+
+</Shell>

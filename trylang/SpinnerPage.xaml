@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="trylang.SpinnerPage"
+             BackgroundColor="#D2EFEF">
+
+    <!-- Main StackLayout for Vertical Alignment -->
+    <VerticalStackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Center">
+
+        <!-- Scrollable Small Spinner Images at the Top -->
+        <ScrollView Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Start" Padding="10" Margin="0,20,0,0">
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                <Image Source="spinner1.png" HeightRequest="100" WidthRequest="100" VerticalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnSpinnerOptionTapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Source="spinner2.png" HeightRequest="100" WidthRequest="100" VerticalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnSpinnerOptionTapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Source="spinner3.png" HeightRequest="100" WidthRequest="100"  VerticalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnSpinnerOptionTapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Source="spinner4.png" HeightRequest="100" WidthRequest="100" VerticalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnSpinnerOptionTapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Source="spinner5.png" HeightRequest="100" WidthRequest="100" VerticalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnSpinnerOptionTapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Source="spinner6.png" HeightRequest="100" WidthRequest="100" VerticalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnSpinnerOptionTapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Source="spinner7.png" HeightRequest="100" WidthRequest="100" VerticalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnSpinnerOptionTapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </HorizontalStackLayout>
+        </ScrollView>
+
+        <!-- Central Large Fidget Spinner Image in the Center -->
+        <Image x:Name="MainSpinner" Source="spinner4.png" 
+               HeightRequest="300" WidthRequest="300" 
+               VerticalOptions="CenterAndExpand"
+               HorizontalOptions="Center"
+               Margin="0,120,0,0">
+            <Image.GestureRecognizers>
+                <!-- Remove Tap Gesture Recognizer -->
+            </Image.GestureRecognizers>
+        </Image>
+    </VerticalStackLayout>
+</ContentPage>

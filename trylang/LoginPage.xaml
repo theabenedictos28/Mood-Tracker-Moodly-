@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="trylang.LoginPage"
+             BackgroundColor="#D2EFEF">
+    <Grid RowDefinitions="auto" HorizontalOptions="Center">
+        <StackLayout HorizontalOptions="Center">
+
+            <!-- Logo and Tagline -->
+            <Label Text="Track your mood with..." 
+                   FontSize="15" 
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Center"
+                   Margin="0,200,0,0"
+                   TextColor="Black"  />
+
+            <Image 
+                Source="frontt.png" 
+                WidthRequest="300" 
+                HeightRequest="100"
+                 Margin="0,0,0,0"
+                HorizontalOptions="Center" />
+            
+            <!-- Email Entry -->
+            <Entry x:Name="EmailEntry" 
+                   Placeholder="Enter email" 
+                   FontSize="12" 
+                   PlaceholderColor="Gray" 
+                   BackgroundColor="Transparent"
+                   VerticalOptions="Center" 
+                   HeightRequest="50" 
+                   WidthRequest="250" 
+                   Margin="0,10"/>
+
+            <!-- Password Entry -->
+            <Entry x:Name="PasswordEntry" 
+                   Placeholder="Enter password" 
+                   FontSize="12" 
+                   IsPassword="True" 
+                   PlaceholderColor="Gray" 
+                   BackgroundColor="Transparent"
+                   VerticalOptions="Center" 
+                   HeightRequest="50" 
+                   WidthRequest="250" 
+                   Margin="0,10" />
+
+            <!-- Login Button -->
+            <Button Text="Login" 
+                    Clicked="OnLoginClicked" 
+                    BackgroundColor="#A2DBFA" 
+                    TextColor="Black" 
+                    CornerRadius="15" 
+                    FontSize="12"
+                    Padding="5,1"
+                    HeightRequest="50"
+                    WidthRequest="250" 
+                    Margin="0,20,0,10" 
+                    HorizontalOptions="Center" />
+
+            <!-- Sign Up Link -->
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,20,0,0">
+                <Label Text="Not a member?" FontSize="15" TextColor="Gray" />
+                <Label Text=" Sign up" 
+                       FontSize="15" 
+                       TextColor="#3D85C6" 
+                       FontAttributes="Bold">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnSignUpClicked" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+
+        </StackLayout>
+    </Grid>
+</ContentPage>

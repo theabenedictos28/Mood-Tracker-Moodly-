@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="trylang.AffirmationPage"           
+             BackgroundColor="#D2EFEF">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <!-- For the header row -->
+            <RowDefinition Height="*" />
+            <!-- For the content row -->
+        </Grid.RowDefinitions>
+
+        <!-- Header with Affirmations Label and View Favorites Button -->
+        <Grid Grid.Row="0" Padding="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <!-- For the label to center -->
+                <ColumnDefinition Width="Auto" />
+                <!-- For the button on the right -->
+            </Grid.ColumnDefinitions>
+
+            <ImageButton 
+                Source="backbutton.png" 
+                HorizontalOptions="Start"
+                VerticalOptions="Center"
+                Clicked="OnBackButtonClicked"
+                BackgroundColor="Transparent"
+                HeightRequest="25"
+                WidthRequest="25"
+                Margin="20,20,0,0"/>
+
+            <Label Text="Affirmation" 
+                   FontSize="30" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Center"
+                   TextColor="#00796B" 
+                   FontFamily="Comic Sans MS"
+                   Margin="0,20,0,0"/>
+
+            <!-- View Favorites Button aligned to the right -->
+            <ImageButton Source="view.png"
+                         HeightRequest="35"
+                         Clicked="OnViewFavoritesClicked" 
+                         BackgroundColor="Transparent" 
+                         HorizontalOptions="End" 
+                         VerticalOptions="Center"
+                         Margin="0,20,0,0" />
+        </Grid>
+
+        <VerticalStackLayout Grid.Row="1" VerticalOptions="Start" HorizontalOptions="Center" Spacing="20">
+            <Frame x:Name="CurrentCard" 
+                   Margin="0,90,0,0"
+                   BackgroundColor="WhiteSmoke"
+                   CornerRadius="20" 
+                   Padding="20" 
+                   HasShadow="True" 
+                   WidthRequest="300" 
+                   HeightRequest="400"
+                   BorderColor="Black">
+                <Label x:Name="AffirmationLabel" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center" 
+                       FontSize="20" 
+                       TextColor="Black" 
+                       FontFamily="Comic Sans MS" 
+                       HorizontalTextAlignment="Center" />
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCardTapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+                <Button x:Name="HeartButton" 
+                        Text="🤍" 
+                        Clicked="OnHeartButtonClicked" 
+                        FontSize="35" 
+                        BackgroundColor="Transparent" 
+                        BorderColor="Transparent" 
+                        HeightRequest="80" 
+                        Margin="0"/>
+
+                <ImageButton Source="share.png"  
+                             Clicked="OnShareClicked"
+                             HeightRequest="30"
+                             BackgroundColor="Transparent"
+                             HorizontalOptions="Center"
+                             Margin="0" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

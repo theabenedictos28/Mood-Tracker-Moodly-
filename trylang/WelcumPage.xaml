@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="trylang.WelcumPage"
+             Title="WelcumPage">
+    <VerticalStackLayout>
+        <!-- Logo and Tagline -->
+        <Label Text="Welcome to Moodly" 
+   FontSize="12" 
+   HorizontalOptions="Center" 
+   TextColor="Black" 
+   Margin="0,0,0,10" />
+
+        <Label Text="Let's Track Your Mood" 
+   FontSize="40" 
+   FontAttributes="Bold" 
+   TextColor="#3D85C6" 
+   HorizontalOptions="Center" 
+   Margin="0,0,0,30" />
+
+
+
+        <!-- Login Button -->
+        <Button Text="Continue" 
+    Clicked="OnContinueClicked" 
+    BackgroundColor="#A2DBFA" 
+    TextColor="Black" 
+    CornerRadius="15" 
+    FontSize="12"
+    Padding="5,1"
+    HeightRequest="5"
+    WidthRequest="100" 
+    Margin="0,20,0,10" 
+    HorizontalOptions="Center" />
+    </VerticalStackLayout>
+</ContentPage>

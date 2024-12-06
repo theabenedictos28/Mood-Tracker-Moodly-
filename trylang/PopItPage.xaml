@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="trylang.PopItPage"
+             
+             BackgroundColor="#D2EFEF">
+    <VerticalStackLayout VerticalOptions="Start" HorizontalOptions="Center" Margin="0,170">
+
+        <!-- Title -->
+        <Label x:Name="titleLabel" 
+       Text="Tap It Game"
+       FontSize="40"
+       HorizontalOptions="Center"
+       TextColor="#FF6F61"
+       FontAttributes="Bold"
+       Margin="0,0,0,20" />
+
+        <Label x:Name="scoreLabel" 
+               FontSize="30" 
+               HorizontalOptions="Center" 
+               TextColor="#FF6F61" 
+               FontAttributes="Bold" 
+               Margin="0,0,0,10" />
+
+        <Label x:Name="highScoreLabel"  
+               FontSize="30" 
+               HorizontalOptions="Center" 
+               TextColor="#FF6F61" 
+               FontAttributes="Bold" 
+               Margin="0,0,0,10" />
+
+        <Label x:Name="timerLabel" 
+               FontSize="30" 
+               HorizontalOptions="Center" 
+               TextColor="#FF6F61" 
+               FontAttributes="Bold" 
+               Margin="0,0,0,20" />
+
+        
+        <!-- Display the selected image as an ImageButton -->
+        <ImageButton x:Name="selectedImageDisplay" 
+                     HeightRequest="200" 
+                     WidthRequest="200" 
+                     BackgroundColor="Transparent"
+                     HorizontalOptions="Center" 
+                     VerticalOptions="Start" 
+                     IsVisible="False" 
+                     Clicked="OnSelectedImageClicked" 
+                     BorderColor="#FF6F61" 
+                     BorderWidth="2" 
+                     CornerRadius="100"
+                     Scale="1"/>
+
+
+        <!-- Image Selection Grid -->
+        <Grid x:Name="imageGrid" 
+      HorizontalOptions="Center" 
+      VerticalOptions="Center" 
+      Margin="0,20,0,200">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Image Buttons for Choices -->
+            <ImageButton x:Name="imageButton1"
+                 Source="one.png" 
+                 BackgroundColor="Transparent"
+                 HeightRequest="100"  
+                WidthRequest="100"
+                Clicked="OnImageSelected" 
+                 Grid.Column="0" 
+                 BorderColor="#FF6F61" 
+                 BorderWidth="3"
+                CornerRadius="50"
+                Padding="10" />
+
+                <ImageButton x:Name="imageButton2"
+                 Source="two.png" 
+                 BackgroundColor="Transparent"
+                 HeightRequest="100"  
+                    WidthRequest="100"
+                    Clicked="OnImageSelected" 
+                 Grid.Column="1" 
+                 BorderColor="#FF6F61" 
+                 BorderWidth="3"
+                    CornerRadius="50"
+                    Padding="10" />
+
+                    <ImageButton x:Name="imageButton3"
+                 Source="three.png"
+                 BackgroundColor="Transparent"
+                 HeightRequest="100"  
+                        WidthRequest="100"
+                        Clicked="OnImageSelected" 
+                 Grid.Column="2" 
+                 BorderColor="#FF6F61" 
+                 BorderWidth="3"
+                        CornerRadius="50"
+                        Padding="10" />
+
+                        <ImageButton x:Name="imageButton4"
+                 Source="four.png"
+                 BackgroundColor="Transparent"
+                 HeightRequest="100"  
+                            WidthRequest="100"
+                            Clicked="OnImageSelected" 
+                 Grid.Column="3" 
+                 BorderColor="#FF6F61" 
+                 BorderWidth="3"
+                            CornerRadius="50"
+                            Padding="10" />
+
+                            <ImageButton x:Name="imageButton5"
+                 Source="five.png"
+                 BackgroundColor="Transparent"
+                 HeightRequest="100" 
+                                WidthRequest="100"
+                                Clicked="OnImageSelected" 
+                 Grid.Column="4" 
+                 BorderColor="#FF6F61" 
+                 BorderWidth="3"
+                                CornerRadius="50"
+                                Padding="10" />
+        </Grid>
+
+
+        <Button x:Name="startButton" 
+                Text="Start Game" 
+                FontSize="24" 
+                Clicked="OnStartGameClicked" 
+                IsVisible="False" 
+                BackgroundColor="#FF6F61" 
+                TextColor="White" 
+                CornerRadius="20" 
+                Padding="10" 
+                Margin="0,20,0,0" />
+        
+        
+    </VerticalStackLayout>
+</ContentPage>

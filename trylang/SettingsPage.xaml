@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="trylang.SettingsPage">
+
+    <VerticalStackLayout Margin="0,30" Spacing="10">
+        <Grid VerticalOptions="Center">
+            <ImageButton 
+                Source="backbutton.png" 
+                Clicked="OnBackButtonClicked"
+                HorizontalOptions="Start" 
+                Margin="10,0,0,0"
+                BackgroundColor="Transparent"
+                HeightRequest="25"  
+                WidthRequest="25"/>
+
+            <!-- Title Label -->
+            <Label Text="Settings" 
+                   FontSize="30"
+                   HorizontalOptions="Center" 
+                   FontAttributes="Bold"
+                   Margin="0,10,0,0"/>
+        </Grid>
+
+        <!-- Account Button -->
+        <Button Text="Account" 
+                Clicked="OnAccountButtonClicked" 
+                Margin="10" 
+                BackgroundColor="LightGray" 
+                TextColor="Black" 
+                FontSize="20"/>
+
+        <!-- Logout Button -->
+        <Button Text="Logout" 
+                Clicked="OnLogoutButtonClicked" 
+                Margin="10" 
+                BackgroundColor="Red" 
+                TextColor="White" 
+                FontSize="20"/>
+    </VerticalStackLayout>
+</ContentPage>

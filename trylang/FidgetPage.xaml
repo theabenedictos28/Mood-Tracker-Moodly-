@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="trylang.FidgetPage"             
+             BackgroundColor="#D2EFEF">
+
+    <!-- Center the entire layout -->
+    <VerticalStackLayout HorizontalOptions="Center"
+                         Margin="0,30"
+                         Spacing="10">
+
+        <Grid VerticalOptions="Center">
+            <ImageButton 
+                Source="backbutton.png" 
+                Clicked="OnBackButtonClicked"
+                HorizontalOptions="Start" 
+                Margin="10,0,0,0"
+                BackgroundColor="Transparent"
+                HeightRequest="25"  
+                WidthRequest="25"/>
+
+            <!-- Title Label -->
+            <Label Text="Relax" 
+       FontSize="30" 
+       FontAttributes="Bold" 
+       HorizontalOptions="Center" 
+       VerticalOptions="Start"
+       TextColor="#004D40" 
+       FontFamily="Comic Sans MS" 
+                   />
+        </Grid>
+
+        <!-- Grid layout for boxes centered within the page -->
+        <Grid ColumnSpacing="20" RowSpacing="20" HorizontalOptions="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!-- Spinner Box -->
+            <Frame Padding="0" Margin="0,50" CornerRadius="10" HasShadow="True" BackgroundColor="#E0F7FA"
+                   Grid.Row="0" Grid.Column="0" WidthRequest="150" HeightRequest="250" BorderColor="Cyan">
+                <Grid>
+                    <Image Source="fidget.png" Aspect="AspectFill" HorizontalOptions="Fill" VerticalOptions="Fill" />
+                   
+                </Grid>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnSpinnerTapped" />
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <!-- Pop It Box -->
+            <Frame Padding="0" Margin="5" CornerRadius="10" HasShadow="True" BackgroundColor="#FFECB3"
+                   Grid.Row="0" Grid.Column="1" WidthRequest="150" HeightRequest="250" BorderColor="Cyan">
+                <Grid>
+                    <Image Source="tapit.png" Aspect="AspectFill" HorizontalOptions="Fill" VerticalOptions="Fill"/>
+                   
+                </Grid>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnPopItTapped" />
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <!-- Bouncy Balls Box -->
+            <Frame Padding="0" Margin="5" CornerRadius="10" HasShadow="True" BackgroundColor="#C5E1A5"
+                   Grid.Row="1" Grid.Column="0" WidthRequest="150" HeightRequest="250" BorderColor="Cyan">
+                <Grid>
+                    <Image Source="popit.png" Aspect="AspectFill" HorizontalOptions="Fill" VerticalOptions="Fill"/>
+                   
+                </Grid>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnBouncyBallsTapped" />
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <!-- Ripples Box -->
+            <Frame Padding="0" Margin="5" CornerRadius="10" HasShadow="True" BackgroundColor="#B3E5FC"
+                   Grid.Row="1" Grid.Column="1" WidthRequest="150" HeightRequest="250" BorderColor="Cyan">
+                <Grid>
+                    <Image Source="ripples.png" Aspect="AspectFill" HorizontalOptions="Fill" VerticalOptions="Fill"/>
+                    
+                </Grid>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnRipplesTapped" />
+                </Frame.GestureRecognizers>
+            </Frame>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

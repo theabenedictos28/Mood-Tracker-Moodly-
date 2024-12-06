@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:system="clr-namespace:System;assembly=netstandard"
+             x:Class="trylang.EditMoodPage"            
+             BackgroundColor="#D2EFEF">
+
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="MoodTemplate">
+                <ViewCell>
+                    <StackLayout Padding="10">
+                        <Label Text="{Binding Mood}" FontSize="24" />
+                        <Label Text="{Binding Date, StringFormat='{}{0:MMMM d, yyyy}'}" FontSize="12" />
+                        <Label Text="{Binding Notes}" FontSize="12" />
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="15">
+
+            <!-- DatePicker for selecting the date -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <DatePicker x:Name="MoodDatePicker" Date="{x:Static system:DateTime.Now}" Grid.Column="0" FontSize="20" IsEnabled="False" TextColor="Black"/>
+               
+            </Grid>
+
+            <!-- Mood Picker -->
+            <Label Text="How are you feeling now?" FontSize="20" HorizontalOptions="Center" />
+            <StackLayout x:Name="MoodStack" Orientation="Horizontal" HorizontalOptions="Center" Spacing="0">
+                <!-- Each Frame contains an Image for mood emoji -->
+                <Frame x:Name="excitedk" Padding="2" WidthRequest="70" HeightRequest="70" BackgroundColor="Transparent" BorderColor="Transparent">
+                    <Image Source="excitedk.png" Aspect="AspectFit">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnMoodTapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Frame>
+                <Frame x:Name="happyk" Padding="2"  WidthRequest="70" HeightRequest="70" BackgroundColor="Transparent" BorderColor="Transparent">
+                    <Image Source="happyk.png" Aspect="AspectFit">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnMoodTapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Frame>
+                <Frame x:Name="neutralk" Padding="2"  WidthRequest="70" HeightRequest="70" BackgroundColor="Transparent" BorderColor="Transparent">
+                    <Image Source="neutralk.png" Aspect="AspectFit">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnMoodTapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Frame>
+                <Frame x:Name="sadk" Padding="2"  WidthRequest="70" HeightRequest="70" BackgroundColor="Transparent" BorderColor="Transparent">
+                    <Image Source="sadk.png" Aspect="AspectFit">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnMoodTapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Frame>
+                <Frame x:Name="angryk" Padding="2" WidthRequest="70" HeightRequest="70" BackgroundColor="Transparent" BorderColor="Transparent">
+                    <Image Source="angryk.png" Aspect="AspectFit">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnMoodTapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Frame>
+
+            </StackLayout>
+
+
+
+            <!-- What's Behind the Mood Section -->
+            <Label Text="What's Behind the Mood?" FontSize="15" HorizontalOptions="Start" />
+
+            <!-- Grid for multiple emotion selection (5 per row, total 20) -->
+            <StackLayout x:Name="EmotionSelectionStack" HorizontalOptions="Center">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Row 1 -->
+                    <Frame Grid.Row="0" Grid.Column="0" Padding="2" BackgroundColor="Transparent" BorderColor="Transparent" WidthRequest="70" HeightRequest="70">
+                        <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+                            <ImageButton x:Name="bored" Source="bored.png" CommandParameter="Bored" Clicked="OnEmotionSelected" BackgroundColor="Transparent" WidthRequest="45" HeightRequest="50"/>
+                            <Label Text="Bored" FontSize="10" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame Grid.Row="0" Grid.Column="1" Padding="2" BackgroundColor="Transparent" BorderColor="Transparent" WidthRequest="70" HeightRequest="70">
+                        <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+                            <ImageButton x:Name="excited" Source="excited.png" CommandParameter="Excited" Clicked="OnEmotionSelected" BackgroundColor="Transparent" WidthRequest="45" HeightRequest="50" />
+                            <Label Text="Excited" FontSize="10" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Row="0" Grid.Column="2" Padding="2" BackgroundColor="Transparent" BorderColor="Transparent" WidthRequest="70" HeightRequest="70">
+                        <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+                            <ImageButton  x:Name="frustrated" Source="frustrated.png" CommandParameter="Frustrated" Clicked="OnEmotionSelected" BackgroundColor="Transparent"  WidthRequest="45" HeightRequest="50" />
+                            <Label Text="Frustrated" FontSize="9" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Row="0" Grid.Column="3" Padding="2" BackgroundColor="Transparent" BorderColor="Transparent" WidthRequest="70" HeightRequest="70">
+                        <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+                            <ImageButton  x:Name="happy" Source="happy.png" CommandParameter="Happy" Clicked="OnEmotionSelected" BackgroundColor="Transparent"  WidthRequest="45" HeightRequest="50"  />
+                            <Label Text="Happy" FontSize="10" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Row="0" Grid.Column="4" Padding="2" BackgroundColor="Transparent" BorderColor="Transparent" WidthRequest="70" HeightRequest="70">
+                        <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+                            <ImageButton   x:Name="sad" Source="sad.png" CommandParameter="Sad" Clicked="OnEmotionSelected" BackgroundColor="Transparent" WidthRequest="45" HeightRequest="50" />
+                            <Label Text="Sad" FontSize="10" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </Frame>
+
+                    <!-- Row 2 -->
+                    <Frame Grid.Row="1" Grid.Column="0" Padding="2" BackgroundColor="Transparent" BorderColor="Transparent" WidthRequest="70" HeightRequest="70">
+                        <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+                            <ImageButton  x:Name="angry" Source="angry.png" CommandParameter="Angry" Clicked="OnEmotionSelected" BackgroundColor="Transparent" WidthRequest="45" HeightRequest="50" />
+                            <Label Text="Angry" FontSize="10" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Row="1" Grid.Column="1" Padding="2" BackgroundColor="Transparent" BorderColor="Transparent" WidthRequest="70" HeightRequest="70">
+                        <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+                            <ImageButton   x:Name="surprised" Source="surprised.png" CommandParameter="Surprised" Clicked="OnEmotionSelected" BackgroundColor="Transparent"  WidthRequest="45" HeightRequest="50" />
+                            <Label Text="Surprised" FontSize="10" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Row="1" Grid.Column="2" Padding="2" BackgroundColor="Transparent" BorderColor="Transparent"  WidthRequest="70" HeightRequest="70">
+                        <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+                            <ImageButton  x:Name="hopeful" Source="hopeful.png" CommandParameter="Hopeful" Clicked="OnEmotionSelected" BackgroundColor="Transparent" WidthRequest="45" HeightRequest="50" />
+                            <Label Text="Hopeful" FontSize="10" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Row="1" Grid.Column="3" Padding="2" BackgroundColor="Transparent" BorderColor="Transparent" WidthRequest="70" HeightRequest="70">
+                        <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+                            <ImageButton  x:Name="relax" Source="relax.png" CommandParameter="Relax" Clicked="OnEmotionSelected" BackgroundColor="Transparent"  WidthRequest="45" HeightRequest="50"  />
+                            <Label Text="Relax" FontSize="10" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Row="1" Grid.Column="4" Padding="2" BackgroundColor="Transparent" BorderColor="Transparent" WidthRequest="70" HeightRequest="70">
+                        <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+                            <ImageButton  x:Name="loved" Source="loved.png" CommandParameter="Loved" Clicked="OnEmotionSelected" BackgroundColor="Transparent" WidthRequest="45" HeightRequest="50" />
+                            <Label Text="Loved" FontSize="10" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </Frame>
+
+                    <!-- Row 3 -->
+                    <Frame Grid.Row="2" Grid.Column="0" Padding="2" BackgroundColor="Transparent" BorderColor="Transparent" WidthRequest="70" HeightRequest="70">
+                        <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+                            <ImageButton  x:Name="energized" Source="energized.png" CommandParameter="Energized" Clicked="OnEmotionSelected" BackgroundColor="Transparent"  WidthRequest="45" HeightRequest="50" />
+                            <Label Text="Energized" FontSize="10" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Row="2" Grid.Column="1" Padding="2" BackgroundColor="Transparent" BorderColor="Transparent" WidthRequest="70" HeightRequest="70">
+                        <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+                            <ImageButton   x:Name="calm" Source="calm.png" CommandParameter="Calm" Clicked="OnEmotionSelected" BackgroundColor="Transparent" WidthRequest="45" HeightRequest="50" />
+                            <Label Text="Calm" FontSize="10" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Row="2" Grid.Column="2" Padding="2" BackgroundColor="Transparent" BorderColor="Transparent" WidthRequest="70" HeightRequest="70">
+                        <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+                            <ImageButton  x:Name="stress" Source="stress.png" CommandParameter="Stress" Clicked="OnEmotionSelected" BackgroundColor="Transparent"  WidthRequest="45" HeightRequest="50" />
+                            <Label Text="Stress" FontSize="10" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Row="2" Grid.Column="3" Padding="2" BackgroundColor="Transparent" BorderColor="Transparent" WidthRequest="70" HeightRequest="70">
+                        <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+                            <ImageButton  x:Name="curious" Source="curious.png" CommandParameter="Curious" Clicked="OnEmotionSelected" BackgroundColor="Transparent" WidthRequest="45" HeightRequest="50" />
+                            <Label Text="Curious" FontSize="10" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Row="2" Grid.Column="4" Padding="2" BackgroundColor="Transparent" BorderColor="Transparent" WidthRequest="70" HeightRequest="70">
+                        <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+                            <ImageButton  x:Name="alone" Source="alone.png" CommandParameter="Alone" Clicked="OnEmotionSelected" BackgroundColor="Transparent" WidthRequest="45" HeightRequest="50" />
+                            <Label Text="Alone" FontSize="10" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+            </StackLayout>
+
+
+
+
+            <!-- Image upload section -->
+            <Label Text="Mood Photo" FontSize="15" HorizontalOptions="Start" />
+
+            <!-- Image upload section -->
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Start" VerticalOptions="Center" Spacing="10">
+                <ImageButton Source="upload.png"  
+                 Clicked="OnUploadPhotoClicked" 
+                 BackgroundColor="Transparent" 
+                 WidthRequest="50" 
+                 HeightRequest="50" 
+                 Aspect="AspectFit"/>
+
+                <Image x:Name="MoodImage" HeightRequest="50" WidthRequest="50" Aspect="AspectFill" />
+            </StackLayout>
+
+
+            <!-- Expandable Mood Details -->
+            <StackLayout x:Name="MoodDetails" IsVisible="True" Padding="10">
+                <Label Text="Mood Notes" FontSize="15" HorizontalOptions="Start" />
+                <Editor x:Name="NotesEditor" 
+                        Placeholder="Enter notes about your mood" 
+                        PlaceholderColor="Gray" 
+                        HeightRequest="100" 
+                        BackgroundColor="#B1E3FF"
+                          FontSize="12"/>
+            </StackLayout>
+
+            <!-- Save Mood Button -->
+            <Button Text="Save Mood" 
+                    Clicked="OnSaveMoodClicked"
+                    BackgroundColor="#A2DBFA" 
+                    TextColor="Black" 
+                    CornerRadius="15" 
+                    FontSize="12"
+                    Padding="5,1"
+                    HeightRequest="50"
+                    WidthRequest="100" 
+                    Margin="0,20,0,10" 
+                    HorizontalOptions="Center" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

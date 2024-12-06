@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="trylang.AccountPage"
+             BackgroundColor="#D2EFEF"
+             Title="Account Settings">
+    <ScrollView>
+        <StackLayout Padding="30" Spacing="20">
+            <!-- Back Button -->
+            <ImageButton 
+                Source="backbutton.png" 
+                HorizontalOptions="Start" 
+                Clicked="OnBackButtonClicked"
+                BackgroundColor="Transparent"
+                HeightRequest="30"
+                WidthRequest="30"
+                Margin="0,20,0,0" />
+
+            <!-- Account Info Title -->
+            <Label Text="Account Information" 
+                   FontSize="24" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Center" 
+                   TextColor="#333333" 
+                   Margin="0,0,0,20" />
+
+            <!-- Email Entry -->
+            <Entry x:Name="EmailEntry" 
+                   Placeholder="Email" 
+                   IsReadOnly="True" 
+                   FontSize="14" 
+                   BackgroundColor="#F0F0F0" 
+                   TextColor="#333333"/>
+
+            <!-- Username Entry -->
+            <Entry x:Name="UsernameEntry" 
+                   Placeholder="Username" 
+                   IsReadOnly="True" 
+                   FontSize="14" 
+                   BackgroundColor="#F0F0F0" 
+                   TextColor="#333333" />
+
+            <!-- Change Password Section -->
+            <Label Text="Change Password" 
+                   FontSize="18" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Start" 
+                   TextColor="#333333" 
+                   Margin="0,20,0,10" />
+
+            <!-- Current Password Entry -->
+            <Entry x:Name="CurrentPasswordEntry" 
+                   Placeholder="Current Password" 
+                   IsPassword="True" 
+                   FontSize="14" 
+                   BackgroundColor="#FFFFFF" 
+                   TextColor="#333333" />
+
+            <!-- New Password Section with Show/Hide Toggle -->
+            <Grid>
+                <Entry x:Name="NewPasswordEntry" 
+                       Placeholder="New Password" 
+                       IsPassword="True" 
+                       FontSize="14" 
+                       BackgroundColor="#FFFFFF" 
+                       TextColor="#333333" />
+
+                <!-- Show/Hide Button for New Password -->
+                <Button x:Name="NewPasswordToggleButton"
+                        Text="Show" 
+                        WidthRequest="60" 
+                        HeightRequest="40" 
+                        HorizontalOptions="End" 
+                        VerticalOptions="Center"
+                        BackgroundColor="#A2DBFA" 
+                        TextColor="Black"
+                        Clicked="OnToggleNewPasswordVisibility" />
+            </Grid>
+
+            <!-- Confirm Password Section with Show/Hide Toggle -->
+            <Grid>
+                <Entry x:Name="ConfirmPasswordEntry" 
+                       Placeholder="Confirm New Password" 
+                       IsPassword="True" 
+                       FontSize="14" 
+                       BackgroundColor="#FFFFFF" 
+                       TextColor="#333333" />
+
+                <!-- Show/Hide Button for Confirm Password -->
+                <Button x:Name="ConfirmPasswordToggleButton"
+                        Text="Show" 
+                        WidthRequest="60" 
+                        HeightRequest="40" 
+                        HorizontalOptions="End" 
+                        VerticalOptions="Center"
+                        BackgroundColor="#A2DBFA" 
+                        TextColor="Black"
+                        Clicked="OnToggleConfirmPasswordVisibility" />
+            </Grid>
+
+            <!-- Update Password Button -->
+            <Button Text="Update Password" 
+                    BackgroundColor="#4CAF50" 
+                    TextColor="White" 
+                    CornerRadius="20" 
+                    FontSize="16" 
+                    HeightRequest="50"
+                    VerticalOptions="Center"
+                    Margin="0,20,0,0"
+                    Clicked="OnUpdatePasswordClicked" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

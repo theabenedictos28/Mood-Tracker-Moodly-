@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="trylang.BouncyBallsPage"
+             BackgroundColor="#D2EFEF">
+
+    <Grid>
+
+        <!-- Add rows for labels and game area -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <!-- Game Area -->
+        </Grid.RowDefinitions>
+
+        <!-- Score and Timer Display -->
+        <Grid Grid.Row="0" ColumnSpacing="10" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <!-- High Score -->
+            <Label x:Name="HighScoreLabel"
+                   Text="High Score: 0"
+                   Grid.Column="0"
+                  HorizontalOptions="Start"
+
+                   FontSize="15"
+                   Margin="10"
+                   TextColor="#2B2B2B"
+                   FontAttributes="Bold" />
+
+            <!-- Current Score -->
+            <Label x:Name="ScoreLabel"
+                   Text="Score: 0"
+                   Grid.Column="1"
+                   FontSize="15"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   TextColor="#2B2B2B"
+                   FontAttributes="Bold" />
+
+            <!-- Timer -->
+            <Label x:Name="TimerLabel"
+                   Text="Time: 10"
+                   Grid.Column="2"
+                   FontSize="15"
+                   Margin="10"
+                   TextColor="#2B2B2B"
+                   HorizontalOptions="End"
+                   FontAttributes="Bold" />
+        </Grid>
+
+        <!-- Game Area -->
+        <AbsoluteLayout x:Name="GameArea" BackgroundColor="#87CEEB"
+                        Grid.Row="1"
+                        HorizontalOptions="FillAndExpand" 
+                        VerticalOptions="FillAndExpand" 
+                        Margin="10">
+
+            <!-- Start Game Button centered in Game Area -->
+            <Button x:Name="StartGameButton"
+                    Text="Start Game"
+                    Clicked="OnStartGameClicked"
+                    BackgroundColor="#FF6F61"
+                    TextColor="White"                
+
+                    FontSize="20"
+                    CornerRadius="20"
+                    Padding="10,5"
+                    AbsoluteLayout.LayoutBounds="0.5, 0.5, AutoSize, AutoSize"
+                    AbsoluteLayout.LayoutFlags="PositionProportional" />
+
+        </AbsoluteLayout>
+
+    </Grid>
+</ContentPage>

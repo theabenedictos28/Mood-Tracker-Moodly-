@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="trylang.SignUpPage"
+             BackgroundColor="#D2EFEF">
+    <StackLayout HorizontalOptions="Center">
+
+        <Image 
+     Source="frontt.png" 
+     WidthRequest="300" 
+     HeightRequest="100"
+     Margin="0,100,0,0"
+     HorizontalOptions="Center" />
+
+        <Entry x:Name="UsernameEntry" 
+               Placeholder="Username" 
+                FontSize="12" 
+                PlaceholderColor="Gray" 
+                BackgroundColor="Transparent"
+                VerticalOptions="Center" 
+                HeightRequest="50" 
+                WidthRequest="250" 
+                Margin="0,5" />
+        <Entry x:Name="EmailEntry" 
+               Placeholder="Email"
+                FontSize="12" 
+                PlaceholderColor="Gray" 
+                BackgroundColor="Transparent"
+                VerticalOptions="Center" 
+                HeightRequest="50" 
+                WidthRequest="250" 
+                Margin="0,5" />
+        <Entry x:Name="PasswordEntry" 
+               Placeholder="Password" 
+               IsPassword="True" 
+                 FontSize="12" 
+                PlaceholderColor="Gray" 
+                BackgroundColor="Transparent"
+                VerticalOptions="Center" 
+                HeightRequest="50" 
+                WidthRequest="250" 
+                Margin="0,5" />
+        <Entry x:Name="ConfirmPasswordEntry" 
+               Placeholder="Confirm Password" 
+               IsPassword="True" FontSize="12" 
+                 PlaceholderColor="Gray" 
+                BackgroundColor="Transparent"
+                VerticalOptions="Center" 
+                HeightRequest="50" 
+                WidthRequest="250" 
+                Margin="0,5" />
+
+        
+        <Button Text="Sign up" 
+                Clicked="OnCreateAccountClicked" 
+                BackgroundColor="#A2DBFA" 
+                TextColor="Black" 
+                CornerRadius="15" 
+                FontSize="12"
+                Padding="5,1"
+                HeightRequest="50"
+                WidthRequest="250" 
+                Margin="0,20,0,10"
+                HorizontalOptions="Center" />
+    </StackLayout>
+</ContentPage>
